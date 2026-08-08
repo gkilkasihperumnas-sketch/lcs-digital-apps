@@ -578,11 +578,11 @@
             <thead>
                 <tr class="bg-gray-100 text-center font-bold">
                     <th class="border border-black p-2">No</th>
-                    <th class="border border-black p-2">Tanggal & Platform</th>
-                    <th class="border border-black p-2">Konten / Materi</th>
-                    <th class="border border-black p-2">Like</th>
-                    <th class="border border-black p-2">Comment</th>
-                    <th class="border border-black p-2">Share</th>
+                    <th class="border border-black p-2">Tanggal</th>
+                    <th class="border border-black p-2">Konten Diseminasi</th>
+                    <th class="border border-black p-2">Bukti Like</th>
+                    <th class="border border-black p-2">Bukti Comment</th>
+                    <th class="border border-black p-2">Bukti Share</th>
                 </tr>
             </thead>
             <tbody id="p-tbody"></tbody>
@@ -1134,13 +1134,15 @@
             ptbody.innerHTML = '';
             filtered.forEach((r, idx) => {
                 ptbody.innerHTML += `
-                    <tr class="text-center">
+                    <tr class="text-center align-middle">
                         <td class="border border-black p-2">${idx + 1}</td>
-                        <td class="border border-black p-2">${r.tanggal}<br><b>${r.platform}</b></td>
-                        <td class="border border-black p-2 text-left">${r.judul}<br><span class="text-xs">Akun: ${r.akun}</span></td>
-                        <td class="border border-black p-2"><span class="text-xs">Ada</span></td>
-                        <td class="border border-black p-2"><span class="text-xs">Ada</span></td>
-                        <td class="border border-black p-2"><span class="text-xs">Ada</span></td>
+                        <td class="border border-black p-2 whitespace-nowrap">${r.tanggal}</td>
+                        <td class="border border-black p-2 text-left">
+                            <b>${r.platform}</b> (${r.akun})<br>${r.judul}
+                        </td>
+                        <td class="border border-black p-2"><img src="${r.like}" class="w-20 h-28 object-cover mx-auto rounded"></td>
+                        <td class="border border-black p-2"><img src="${r.comment}" class="w-20 h-28 object-cover mx-auto rounded"></td>
+                        <td class="border border-black p-2"><img src="${r.share}" class="w-20 h-28 object-cover mx-auto rounded"></td>
                     </tr>
                 `;
             });
